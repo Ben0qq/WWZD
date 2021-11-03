@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Wordcloud from './wordcloud/Wordcloud'
 import Navigation from './components/Navigation/Navigation'
-import Tree from './tree/Tree'
+import GraphTree from './graph-tree/GraphTree'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <main>
             <Switch>
               <Route path='/wordcloud' component={Wordcloud}  />
-              <Route path='/' component={Tree}  />
+              <Route path='/' component={GraphTree}  />
             </Switch>
         </main>
       </BrowserRouter>
