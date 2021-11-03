@@ -6,7 +6,7 @@ function Navigation() {
     return (
         <nav className="navigation">
             <div className="navigation__logo">
-                WWZD 
+                WWZD
             </div>
             <ul className="navigation__item-list">
                 <li>
@@ -18,12 +18,18 @@ function Navigation() {
                     >Graph tree</NavLink>
                 </li>
                 <li>
-                    <NavLink 
+                    <NavLink
                         to="/Wordcloud"
                         exact
                         className={'navigation__item btn'}
                         activeClassName={'selected'}>
                         Wordcloud</NavLink>
+                    <NavLink
+                        to="/Forcegraph"
+                        exact
+                        className={'navigation__item btn'}
+                        activeClassName={'selected'}>
+                        Forcegraph</NavLink>
                 </li>
             </ul>
         </nav >
