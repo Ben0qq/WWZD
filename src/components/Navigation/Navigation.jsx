@@ -24,12 +24,22 @@ function Navigation() {
                         className={'navigation__item btn'}
                         activeClassName={'selected'}>
                         Wordcloud</NavLink>
+                </li>
+                <li>
                     <NavLink
                         to="/Forcegraph"
                         exact
                         className={'navigation__item btn'}
                         activeClassName={'selected'}>
                         Forcegraph</NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/Forcegraph3d"
+                        exact
+                        className={'navigation__item btn'}
+                        activeClassName={'selected'}>
+                        Forcegraph3d</NavLink>
                 </li>
             </ul>
         </nav >

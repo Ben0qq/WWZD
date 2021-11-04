@@ -10,6 +10,7 @@ import Wordcloud from './wordcloud/Wordcloud'
 import Navigation from './components/Navigation/Navigation'
 import GraphTree from './graph-tree/GraphTree'
 import Forcegraph from './forcegraph/Forcegraph'
+import ForceGraph3D from './forcegraph/Forcegraph3d';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <main>
             <Switch>
               <Route path='/forcegraph' component={Forcegraph}  />
+              <Route path='/forcegraph3d' component={ForceGraph3D}  />
               <Route path='/wordcloud' component={Wordcloud}  />
               <Route path='/' component={GraphTree}  />
             </Switch>
