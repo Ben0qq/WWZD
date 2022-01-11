@@ -15,7 +15,7 @@ function Navigation() {
                         exact
                         activeClassName={'selected'}
                         className={'navigation__item btn'}
-                    >Graph tree</NavLink>
+                    >Highcharts</NavLink>
                 </li>
                 <li>
                     <NavLink
