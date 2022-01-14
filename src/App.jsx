@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Wordcloud from './wordcloud/Wordcloud'
 import Navigation from './components/Navigation/Navigation'
-import highcharts from './highcharts/Highcharts'
+import Highchartss from './highcharts/Highcharts'
 import Forcegraph from './forcegraph/Forcegraph'
 import ForceGraph3D from './forcegraph/Forcegraph3d';
 
@@ -22,7 +22,7 @@ function App() {
               <Route path='/forcegraph' component={Forcegraph}  />
               <Route path='/forcegraph3d' component={ForceGraph3D}  />
               <Route path='/wordcloud' component={Wordcloud}  />
-              <Route path='/' component={highcharts}  />
+              <Route path='/' component={Highchartss}  />
             </Switch>
         </main>
       </BrowserRouter>
