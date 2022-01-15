@@ -11,35 +11,27 @@ function Navigation() {
             <ul className="navigation__item-list">
                 <li>
                     <NavLink
-                        to="/"
+                        to="/umap"
                         exact
                         activeClassName={'selected'}
                         className={'navigation__item btn'}
-                    >Highcharts</NavLink>
+                    >UMAP</NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to="/Wordcloud"
+                        to="/pca"
                         exact
                         className={'navigation__item btn'}
                         activeClassName={'selected'}>
-                        Wordcloud</NavLink>
+                        PCA</NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to="/Forcegraph"
+                        to="/tsne"
                         exact
                         className={'navigation__item btn'}
                         activeClassName={'selected'}>
-                        Forcegraph</NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/Forcegraph3d"
-                        exact
-                        className={'navigation__item btn'}
-                        activeClassName={'selected'}>
-                        Forcegraph3d</NavLink>
+                        TSNE</NavLink>
                 </li>
             </ul>
         </nav >

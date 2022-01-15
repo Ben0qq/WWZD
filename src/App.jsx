@@ -1,16 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import {
   BrowserRouter ,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
-import Wordcloud from './wordcloud/Wordcloud'
 import Navigation from './components/Navigation/Navigation'
 import Highchartss from './highcharts/Highcharts'
-import Forcegraph from './forcegraph/Forcegraph'
-import ForceGraph3D from './forcegraph/Forcegraph3d';
+import PcaHighchartss from './pca-highcharts/PcaHighcharts';
+import TsneHighchartss from './tsne-highcharts/TsneHighcharts';
 
 function App() {
   return (
@@ -18,11 +17,13 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <main>
-            <Switch>
-              <Route path='/forcegraph' component={Forcegraph}  />
-              <Route path='/forcegraph3d' component={ForceGraph3D}  />
-              <Route path='/wordcloud' component={Wordcloud}  />
-              <Route path='/' component={Highchartss}  />
+            <Switch >
+              <Route exact path="/">
+                    <Redirect from='/' to='/umap'/>
+              </Route>
+              <Route path='/umap' component={Highchartss}  />
+              <Route path='/pca' component={PcaHighchartss}  />
+              <Route path='/tsne' component={TsneHighchartss}  />
             </Switch>
         </main>
       </BrowserRouter>
