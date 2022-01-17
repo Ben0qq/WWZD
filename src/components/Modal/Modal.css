@@ -1,0 +1,35 @@
+article{
+    padding:1rem;
+}
+.date{
+    color:darkgrey;
+    margin-bottom:2rem;
+}
+.teaser{
+    text-align: justify;
+}
+img{
+    max-width:100%;
+}
+.content{
+    max-width:70%;
+    margin:0 auto;
+    text-align: justify;
+    margin-top:1rem;
+    letter-spacing: 2;
+}
+footer{
+    margin-top:3rem;
+    padding-top:0.5rem;
+    border-top:1px solid darkgrey;
+} 
+a{
+    color:gray;
+    text-decoration:none;
+}
+a:hover{
+    opacity: 0.6;
+}
+.text-center{
+    text-align:center
+}

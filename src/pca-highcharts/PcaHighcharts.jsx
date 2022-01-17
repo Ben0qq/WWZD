@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import Highcharts from 'highcharts/highstock'
-import HighchartsReact from 'highcharts-react-official'
-import Slide from '@mui/material/Slide';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+import React, { useState, useEffect } from 'react';
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import Modal from '../components/Modal/Modal';
 
 function PcaHighchartss() {
   const [open, setOpen] = React.useState(false);
@@ -52,6 +46,7 @@ function PcaHighchartss() {
     plotOptions: {
       series: {
         allowPointSelect: true,
+        cursor:'pointer',
         point: {
           events: {
             click: function (e) {
@@ -76,18 +71,12 @@ function PcaHighchartss() {
 
   return (
     <div id="forceWrapper" style={{ width: '95vw', height: '90vh' }}>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
+      <Modal
+        dialogData={dialogData}
+        open ={open}
+        handleClose={handleClose}
       >
-        <DialogTitle>{dialogData.title}</DialogTitle>
-        <p>{dialogData.publicationDate}</p>
-        <p>{dialogData.teaser}</p>
-        <img src={dialogData.imageUrl} />
-        <p>{dialogData.text}</p>
-
-      </Dialog>
+      </Modal>
       <HighchartsReact
         highcharts={Highcharts}
         options={options}>
