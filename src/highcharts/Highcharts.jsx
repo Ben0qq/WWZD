@@ -11,6 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function Highchartss() {
   const [open, setOpen] = React.useState(false);
+  const [dialogData, setDialogData] = React.useState({})
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,6 +49,21 @@ function Highchartss() {
         text: null
       }
     },
+    plotOptions: {
+      series: {
+        allowPointSelect: true,
+        point: {
+          events: {
+            click: function (e) {
+              fetch("http://127.0.0.1:5000/rp/" + this.name)
+                .then(response => response.json())
+                .then(response => setDialogData(response.data))
+                .then(() => handleClickOpen(true))
+            }
+          }
+        }
+      }
+    },
     series: [{ data: [] }]
   });
   useEffect(() => {
@@ -61,17 +77,23 @@ function Highchartss() {
   return (
     <div id="forceWrapper" style={{ width: '95vw', height: '90vh' }}>
       <Dialog
-        fullScreen
         open={open}
         onClose={handleClose}
         TransitionComponent={Transition}
-      />
-        <HighchartsReact
-          highcharts={Highcharts}
-          options={options}>
+      >
+        <DialogTitle>{dialogData.title}</DialogTitle>
+        <p>{dialogData.publicationDate}</p>
+        <p>{dialogData.teaser}</p>
+        <img src={dialogData.imageUrl} />
+        <p>{dialogData.text}</p>
 
-        </HighchartsReact>
-      
+      </Dialog>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}>
+
+      </HighchartsReact>
+
     </div>
   );
 }
