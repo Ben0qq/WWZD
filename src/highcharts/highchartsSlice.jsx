@@ -11,13 +11,13 @@ export const getUmap = createAsyncThunk(
     'highcharts/umap',
     async () => {
         try {
-            
             const response = await axios.get('http://127.0.0.1:5000/umap', {
                 headers:{
                     maxContentLength: Infinity,
                     maxBodyLength: Infinity
                 }
             })
+            console.log(response.data)
             return response.data;
         } catch (error) {
             console.log(error.response.data)
