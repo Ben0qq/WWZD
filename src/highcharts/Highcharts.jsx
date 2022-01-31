@@ -3,6 +3,10 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import Modal from '../components/Modal/Modal';
 
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
 function Highchartss() {
   const [open, setOpen] = React.useState(false);
@@ -14,6 +18,12 @@ function Highchartss() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [currentModel, setValue] = React.useState('herbert');
+
+  const handleModelChange = (event) => {
+    setValue(event.target.value);
   };
 
   const [options, setOptions] = useState({
@@ -62,16 +72,35 @@ function Highchartss() {
     },
     series: [{ data: [] }]
   });
-  useEffect(() => {
-    fetch("http://127.0.0.1:5000/umap")
-      .then(response => response.json())
-      .then(array =>
-        setOptions({ series: array.series })
-      );
-  }, []);
+   useEffect(() => {
+    fetch("http://127.0.0.1:5000/umap?data="+ currentModel)
+    .then(response => response.json())
+    .then(array => 
+      setOptions({ series: array.series })
+    );
+}, [currentModel]);
 
   return (
-    <div id="forceWrapper" style={{ width: '95vw', height: '90vh' }}>
+    <div id="forceWrapper">
+      <FormControl>
+      <h3>Model językowy</h3>
+      <RadioGroup
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+        value={currentModel}
+        onChange={handleModelChange}
+      >
+       <FormControlLabel value="herbert" control={<Radio />} label="HerBERT" />
+        <FormControlLabel value="dKleczekBert" control={<Radio />} label="PolBERT" />
+        <FormControlLabel value="stDistiluse" control={<Radio />} label="Distiluse" />
+        <FormControlLabel
+          value="tfidf"
+          control={<Radio />}
+          label="TFIDF"
+        />
+      </RadioGroup>
+    </FormControl>
       <Modal
         dialogData={dialogData}
         open ={open}
